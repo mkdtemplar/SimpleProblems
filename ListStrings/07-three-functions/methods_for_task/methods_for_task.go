@@ -4,14 +4,14 @@ type Slice struct {
 	NewSlice []int
 }
 
-func NewSlice(newSlice []int) ISlice {
-	return &Slice{NewSlice: newSlice}
-}
-
 type ISlice interface {
 	IterativeSumOfSlice() int
 	ConditionalSumOfSlice() int
 	RecursiveSumOfSlice(length int) int
+}
+
+func NewSlice(newSlice []int) ISlice {
+	return &Slice{NewSlice: newSlice}
 }
 
 func (s *Slice) IterativeSumOfSlice() int {
