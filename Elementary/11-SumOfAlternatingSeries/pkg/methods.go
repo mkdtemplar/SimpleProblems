@@ -1,12 +1,8 @@
-package main
+package pkg
 
-import (
-	"fmt"
-	"math"
-)
+import "math"
 
-func main() {
-
+func SumOfAlternatingSeries() int {
 	var sum int
 
 	for k := 0; k <= 1000000; k++ {
@@ -14,5 +10,5 @@ func main() {
 	}
 
 	sum *= 4
-	fmt.Printf("Sum is %d\n", sum)
+	return sum
 }
