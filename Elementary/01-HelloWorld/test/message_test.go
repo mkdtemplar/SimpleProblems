@@ -1,11 +1,12 @@
 package test
 
 import (
-	"github.com/mkdtemplar/SimpleProblems/Elementary/01-HelloWorld/pkg"
 	"io"
 	"os"
 	"strings"
 	"testing"
+
+	"github.com/mkdtemplar/SimpleProblems/Elementary/01-HelloWorld/pkg"
 )
 
 func TestPrintGreetMessage(t *testing.T) {
