@@ -32,3 +32,16 @@ func TestPrintGreetMessage(t *testing.T) {
 		t.Errorf("incorrect greeting got: %v", string(out))
 	}
 }
+
+func TestGreetMessage1(t *testing.T) {
+	greet := pkg.NewGreetMessage("Hello World")
+	got := greet.PrintGreetMessage1()
+	want := "Hello World"
+
+	if strings.Compare(got, want) != 0 {
+		t.Errorf("incorrect greeting got: %v, want: %v", got, want)
+	}
+	if got != want {
+		t.Errorf("incorrect greeting got: %v, want: %v", got, want)
+	}
+}

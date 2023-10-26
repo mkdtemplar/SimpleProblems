@@ -20,4 +20,5 @@ func main() {
 	greet := pkg.NewGreetMessage(greetMessage)
 
 	greet.PrintGreetMessage()
+	fmt.Println(greet.PrintGreetMessage1())
 }

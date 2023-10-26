@@ -12,8 +12,13 @@ func NewGreetMessage(greetMessage string) IGreetMessage {
 
 type IGreetMessage interface {
 	PrintGreetMessage()
+	PrintGreetMessage1() string
 }
 
 func (g *GreetMessage) PrintGreetMessage() {
 	fmt.Println(g.greetMessage)
+}
+
+func (g *GreetMessage) PrintGreetMessage1() string {
+	return g.greetMessage
 }

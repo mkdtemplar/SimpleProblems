@@ -1,0 +1,11 @@
+go 1.21.3
+
+use (
+	./Elementary/01-HelloWorld
+	./Elementary/02-Greetings
+	./Elementary/11-SumOfAlternatingSeries
+	./Elementary/ListStrings/02-reverse-list-in-place
+	./Elementary/ListStrings/06-palindrome
+	./Elementary/ListStrings/07-three-functions
+	./Elementary/ListStrings/Largest-Element-in-List
+)
