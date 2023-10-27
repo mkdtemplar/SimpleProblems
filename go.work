@@ -9,4 +9,5 @@ use (
 	./Elementary/ListStrings/07-three-functions
 	./Elementary/ListStrings/Largest-Element-in-List
 	./Elementary/03-Greet-Alice-Bob
+	./Elementary/04-sum-n-numbers
 )
