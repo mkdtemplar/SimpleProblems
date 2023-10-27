@@ -8,4 +8,5 @@ use (
 	./Elementary/ListStrings/06-palindrome
 	./Elementary/ListStrings/07-three-functions
 	./Elementary/ListStrings/Largest-Element-in-List
+	./Elementary/03-Greet-Alice-Bob
 )
