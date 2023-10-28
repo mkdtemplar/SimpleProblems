@@ -11,4 +11,5 @@ use (
 	./Elementary/03-Greet-Alice-Bob
 	./Elementary/04-sum-n-numbers
 	./Elementary/05-multiples
+	./Elementary/06-choose-operation
 )
