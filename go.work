@@ -10,4 +10,5 @@ use (
 	./Elementary/ListStrings/Largest-Element-in-List
 	./Elementary/03-Greet-Alice-Bob
 	./Elementary/04-sum-n-numbers
+	./Elementary/05-multiples
 )
