@@ -3,11 +3,6 @@ go 1.21.3
 use (
 	./Elementary/01-HelloWorld
 	./Elementary/02-Greetings
-	./Elementary/11-SumOfAlternatingSeries
-	./Elementary/ListStrings/02-reverse-list-in-place
-	./Elementary/ListStrings/06-palindrome
-	./Elementary/ListStrings/07-three-functions
-	./Elementary/ListStrings/Largest-Element-in-List
 	./Elementary/03-Greet-Alice-Bob
 	./Elementary/04-sum-n-numbers
 	./Elementary/05-multiples
@@ -16,4 +11,9 @@ use (
 	./Elementary/08-prime-numbers
 	./Elementary/09-guessing-game
 	./Elementary/10-print-leap-years
+	./Elementary/11-SumOfAlternatingSeries
+	./ListStrings/02-reverse-list-in-place
+	./ListStrings/06-palindrome
+	./ListStrings/Largest-Element-in-List
+	./ListStrings/07-three-functions
 )

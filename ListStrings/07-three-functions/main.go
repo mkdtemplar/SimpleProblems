@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/mkdtemplar/SimpleProblems/ListStrings/07-three-functions/methods_for_task"
 )
 
