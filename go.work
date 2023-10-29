@@ -15,4 +15,5 @@ use (
 	./Elementary/07-multiplication-table-12
 	./Elementary/08-prime-numbers
 	./Elementary/09-guessing-game
+	./Elementary/10-print-leap-years
 )
