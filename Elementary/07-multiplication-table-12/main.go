@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	pkg.CalculateTable()
-
+	pkg.PrintTable2D(pkg.CalculateTable2DSlice())
 }
