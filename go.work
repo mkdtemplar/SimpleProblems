@@ -12,4 +12,5 @@ use (
 	./Elementary/04-sum-n-numbers
 	./Elementary/05-multiples
 	./Elementary/06-choose-operation
+	./Elementary/07-multiplication-table-12
 )
