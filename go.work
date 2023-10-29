@@ -13,4 +13,5 @@ use (
 	./Elementary/05-multiples
 	./Elementary/06-choose-operation
 	./Elementary/07-multiplication-table-12
+	./Elementary/08-prime-numbers
 )
