@@ -14,7 +14,7 @@ use (
 	./Elementary/11-SumOfAlternatingSeries
 	./ListStrings/02-reverse-list-in-place
 	./ListStrings/06-palindrome
-	./ListStrings/Largest-Element-in-List
 	./ListStrings/07-three-functions
 	./ListStrings/01-largest-element-in-list
+	./ListStrings/03-element-occurs-in-list
 )
