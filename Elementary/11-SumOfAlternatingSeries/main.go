@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"sum-alternate-series/pkg"
+
+	"github.com/mkdtemplar/SimpleProblems/Elementary/11-SumOfAlternatingSeries/pkg"
 )
 
 func main() {
