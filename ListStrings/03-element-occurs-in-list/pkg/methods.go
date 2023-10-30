@@ -2,12 +2,12 @@ package pkg
 
 import "fmt"
 
-type Slice struct {
-	newSlice []int
+type Slice[T comparable] struct {
+	newSlice []T
 }
 
-func (s *Slice) Run() {
-	var element int
+func (s *Slice[T]) Run() {
+	var element T
 
 	fmt.Print("Enter number to check if it is in the slice: ")
 	_, err := fmt.Scan(&element)
@@ -22,7 +22,7 @@ func (s *Slice) Run() {
 	}
 }
 
-func (s *Slice) FindElement(input int) bool {
+func (s *Slice[T]) FindElement(input T) bool {
 
 	for _, element := range s.newSlice {
 		if input == element {
@@ -33,11 +33,11 @@ func (s *Slice) FindElement(input int) bool {
 	return false
 }
 
-func NewSlice(newSlice []int) ISlice {
-	return &Slice{newSlice: newSlice}
+func NewSlice[T comparable](newSlice []T) ISlice[T] {
+	return &Slice[T]{newSlice: newSlice}
 }
 
-type ISlice interface {
-	FindElement(input int) bool
+type ISlice[T comparable] interface {
+	FindElement(input T) bool
 	Run()
 }
