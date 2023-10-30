@@ -1,10 +1,12 @@
 package pkg
 
-type List struct {
-	list []int
+import "golang.org/x/exp/constraints"
+
+type List[T constraints.Ordered] struct {
+	list []T
 }
 
-func (l *List) LargestElement() int {
+func (l *List[T]) LargestElement() T {
 	maxElement := l.list[0]
 
 	for _, e := range l.list {
@@ -15,10 +17,10 @@ func (l *List) LargestElement() int {
 	return maxElement
 }
 
-func NewList(list []int) IList {
-	return &List{list: list}
+func NewList[T constraints.Ordered](list []T) IList[T] {
+	return &List[T]{list: list}
 }
 
-type IList interface {
-	LargestElement() int
+type IList[T constraints.Ordered] interface {
+	LargestElement() T
 }
