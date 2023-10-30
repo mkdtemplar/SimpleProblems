@@ -11,11 +11,17 @@ func main() {
 
 	sliceNewString := []string{"a", "b", "c", "d"}
 
+	sliceNewSpecial := []string{"!", "{", "_", "*", "&"}
+
 	newPkg := pkg.NewList(sliceNew)
 
 	newPkgString := pkg.NewList(sliceNewString)
 
+	newPkgSpecial := pkg.NewList(sliceNewSpecial)
+
 	fmt.Println(newPkg.LargestElement())
 
 	fmt.Println(newPkgString.LargestElement())
+
+	fmt.Println(newPkgSpecial.LargestElement())
 }
