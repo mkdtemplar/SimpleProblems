@@ -18,4 +18,5 @@ use (
 	./ListStrings/01-largest-element-in-list
 	./ListStrings/03-element-occurs-in-list
 	./ListStrings/04-odd-positions-in-list
+	./ListStrings/05-running-total-of-a-list
 )
