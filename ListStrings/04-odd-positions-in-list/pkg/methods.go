@@ -1,12 +1,12 @@
 package pkg
 
-type Slice struct {
-	newSlice []int
+type Slice[T any] struct {
+	newSlice []T
 }
 
 // FindOddPosition implements ISlice.
-func (s *Slice) FindOddPosition() []int {
-	var oddElements []int
+func (s *Slice[T]) FindOddPosition() []T {
+	var oddElements []T
 	for i := 0; i < len(s.newSlice); i++ {
 		if i%2 != 0 {
 			oddElements = append(oddElements, s.newSlice[i])
@@ -15,10 +15,10 @@ func (s *Slice) FindOddPosition() []int {
 	return oddElements
 }
 
-type ISlice interface {
-	FindOddPosition() []int
+type ISlice[T any] interface {
+	FindOddPosition() []T
 }
 
-func NewSlice(newSlice []int) ISlice {
-	return &Slice{newSlice: newSlice}
+func NewSlice[T any](newSlice []T) ISlice[T] {
+	return &Slice[T]{newSlice: newSlice}
 }
