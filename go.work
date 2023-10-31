@@ -20,4 +20,5 @@ use (
 	./ListStrings/04-odd-positions-in-list
 	./ListStrings/05-running-total-of-a-list
 	./ListStrings/08-perfect-squares
+	./ListStrings/09-concatenates-two-lists
 )
