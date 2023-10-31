@@ -19,4 +19,5 @@ use (
 	./ListStrings/03-element-occurs-in-list
 	./ListStrings/04-odd-positions-in-list
 	./ListStrings/05-running-total-of-a-list
+	./ListStrings/08-perfect-squares
 )
