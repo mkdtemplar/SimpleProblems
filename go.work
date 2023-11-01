@@ -22,4 +22,5 @@ use (
 	./ListStrings/08-perfect-squares
 	./ListStrings/09-concatenates-two-lists
 	./ListStrings/10_combines_two_lists
+	./ListStrings/11-merging-two-sorted-lists
 )
