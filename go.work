@@ -21,4 +21,5 @@ use (
 	./ListStrings/05-running-total-of-a-list
 	./ListStrings/08-perfect-squares
 	./ListStrings/09-concatenates-two-lists
+	./ListStrings/10_combines_two_lists
 )
