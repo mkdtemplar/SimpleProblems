@@ -8,11 +8,11 @@ import (
 
 func main() {
 	exampleSlice := []int{1, 2, 3, 4, 5, 6}
-	input := []int{1, 2, 3, 4, 5, 6}
+	input1 := []int{1, 2, 3, 4, 5, 6}
 	input2 := []int{1, 2, 3, 4, 5, 6}
 	var k int
-	newPkg := pkgrotatesliceelements.NewRotate(input)
-	newPkg1 := pkgrotatesliceelements.NewRotate(input2)
+	newPkg1 := pkgrotatesliceelements.NewRotate(input1)
+	newPkg2 := pkgrotatesliceelements.NewRotate(input2)
 
 	fmt.Print("Enter number of rotations: ")
 	_, err := fmt.Scan(&k)
@@ -20,8 +20,8 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Rotation of elements of slice %v for %d  positions left %v\n", exampleSlice, k, newPkg.RotateElementsLeft(k))
+	fmt.Printf("Rotation of elements of slice %v for %d  positions left %v\n", exampleSlice, k, newPkg1.RotateElementsLeft(k))
 
-	fmt.Printf("Rotation of elements of slice %v for %d  positions right %v\n", exampleSlice, k, newPkg1.RotateElementsRight(k))
+	fmt.Printf("Rotation of elements of slice %v for %d  positions right %v\n", exampleSlice, k, newPkg2.RotateElementsRight(k))
 
 }
