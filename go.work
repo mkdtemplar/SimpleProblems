@@ -25,4 +25,5 @@ use (
 	./ListStrings/11-merging-two-sorted-lists
 	./ListStrings/12-rotates-a-list-by-k-elements
 	./ListStrings/13-first-100-Fibonacci-numbers
+	./ListStrings/14-list-of-digits
 )
