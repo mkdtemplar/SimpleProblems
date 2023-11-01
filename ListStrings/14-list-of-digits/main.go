@@ -20,5 +20,5 @@ func main() {
 	newPkg := methodsforlistofdigits.NewListOfDigits(n)
 
 	fmt.Println(newPkg.PrintListOfDigits())
-
+	
 }
