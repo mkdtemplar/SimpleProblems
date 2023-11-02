@@ -6,16 +6,27 @@ import (
 )
 
 type Numbers struct {
-	num1 int64
-	num2 int64
+	num1 string
+	num2 string
 }
 
 type INumbers interface {
 	Addition() string
 }
 
-func NewNumbers(num1 int64, num2 int64) INumbers {
+func NewNumbers(num1 string, num2 string) INumbers {
 	return &Numbers{num1: num1, num2: num2}
+}
+
+func StringToDigitsSlice(num1 string) []int64 {
+	var numSlice []int64
+	for _, e := range num1 {
+		char, _ := strconv.Atoi(string(e))
+
+		numSlice = append(numSlice, int64(char))
+	}
+
+	return numSlice
 }
 
 func DigitsToSlice(n int64) []int64 {
@@ -105,8 +116,8 @@ func NumSliceToStringSlice(resultSlice []int64) []string {
 }
 
 func (n *Numbers) Addition() string {
-	num1 := DigitsToSlice(n.num1)
-	num2 := DigitsToSlice(n.num2)
+	num1 := StringToDigitsSlice(n.num1)
+	num2 := StringToDigitsSlice(n.num2)
 
 	num1, num2 = OptimizeSlices(num1, num2)
 

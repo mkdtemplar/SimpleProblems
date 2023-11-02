@@ -8,7 +8,9 @@ import (
 
 func main() {
 
-	newPkg := pkgforarithmetic.NewNumbers(9999, 9999)
+	fmt.Println(pkgforarithmetic.StringToDigitsSlice("999999999999999999999"))
+
+	newPkg := pkgforarithmetic.NewNumbers("999999999999999999999", "999999999999999999999")
 
 	fmt.Println(newPkg.Addition())
 }
