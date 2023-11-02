@@ -29,20 +29,6 @@ func StringToDigitsSlice(num1 string) []int64 {
 	return numSlice
 }
 
-func DigitsToSlice(n int64) []int64 {
-	var listOfDigits []int64
-	for n > 0 {
-		listOfDigits = append(listOfDigits, n%10)
-		n = n / 10
-	}
-
-	for i, j := 0, len(listOfDigits)-1; i < j; i, j = i+1, j-1 {
-		listOfDigits[i], listOfDigits[j] = listOfDigits[j], listOfDigits[i]
-	}
-
-	return listOfDigits
-}
-
 func RemoveLeadingZeros(res []int64) []int64 {
 	indicator := -1
 	var output []int64

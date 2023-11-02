@@ -7,7 +7,7 @@ import (
 )
 
 func TestAddition(t *testing.T) {
-	want := "12666666666666666666654"
+	want := "1999999999999999999998"
 
 	newPkg := pkgforarithmetic.NewNumbers("999999999999999999999", "999999999999999999999")
 
