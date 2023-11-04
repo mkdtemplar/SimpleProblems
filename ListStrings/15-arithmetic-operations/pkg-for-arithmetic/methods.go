@@ -12,6 +12,7 @@ type Numbers struct {
 
 type INumbers interface {
 	Addition() string
+	Subtraction() string
 }
 
 func NewNumbers(num1 string, num2 string) INumbers {
@@ -116,4 +117,9 @@ func (n *Numbers) Addition() string {
 	numberString := strings.Join(resultString, "")
 
 	return numberString
+}
+
+func (n *Numbers) Subtraction() string {
+	//TODO implement me
+	panic("implement me")
 }
