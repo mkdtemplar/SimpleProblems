@@ -6,16 +6,16 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
-func BinarySearch[T constraints.Ordered](a []T, x T) int {
-	low, high := 0, len(a)-1
+func BinarySearch[T constraints.Ordered](s []T, x T) int {
+	low, high := 0, len(s)-1
 
 	for low <= high {
 		mid := low + (high-low)/2
-		if a[mid] == x {
+		if s[mid] == x {
 			return mid
 		}
 
-		if a[mid] < x {
+		if s[mid] < x {
 			low = mid + 1
 		} else {
 			high = mid - 1
