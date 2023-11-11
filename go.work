@@ -28,4 +28,5 @@ use (
 	./ListStrings/14-list-of-digits
 	./ListStrings/15-arithmetic-operations
 	./ListStrings/17-sorting-algorithms
+	./ListStrings/18-binary-search
 )
