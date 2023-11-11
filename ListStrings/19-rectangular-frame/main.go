@@ -21,21 +21,25 @@ func RectangularFrame(s []string) string {
 		str += "*"
 	}
 	str += "\n* "
-	for _, v := range s {
+	for i, v := range s {
 		for _, c := range v {
 			str += string(c)
 		}
-		for j := 0; j < maxlength - len(v) - 4; j++ {
+		for j := 0; j < maxlength-len(v)-4; j++ {
 			str += " "
 		}
 		str += " *\n"
-		str += "* "
+		if i == len(s)-1 {
+			str += "*"
+		} else {
+			str += "* "
+		}
+
 	}
 
-	for i := 0; i < maxlength - 1; i++ {
+	for i := 0; i < maxlength-1; i++ {
 		str += "*"
 	}
-	
 
 	return str
 }
