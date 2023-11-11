@@ -29,4 +29,5 @@ use (
 	./ListStrings/15-arithmetic-operations
 	./ListStrings/17-sorting-algorithms
 	./ListStrings/18-binary-search
+	./ListStrings/19-rectangular-frame
 )
