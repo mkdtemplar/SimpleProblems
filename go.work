@@ -1,4 +1,4 @@
-go 1.21.3
+go 1.21.4
 
 use (
 	./Elementary/01-HelloWorld
@@ -12,13 +12,13 @@ use (
 	./Elementary/09-guessing-game
 	./Elementary/10-print-leap-years
 	./Elementary/11-SumOfAlternatingSeries
-	./ListStrings/02-reverse-list-in-place
-	./ListStrings/06-palindrome
-	./ListStrings/07-three-functions
 	./ListStrings/01-largest-element-in-list
+	./ListStrings/02-reverse-list-in-place
 	./ListStrings/03-element-occurs-in-list
 	./ListStrings/04-odd-positions-in-list
 	./ListStrings/05-running-total-of-a-list
+	./ListStrings/06-palindrome
+	./ListStrings/07-three-functions
 	./ListStrings/08-perfect-squares
 	./ListStrings/09-concatenates-two-lists
 	./ListStrings/10_combines_two_lists
@@ -27,4 +27,5 @@ use (
 	./ListStrings/13-first-100-Fibonacci-numbers
 	./ListStrings/14-list-of-digits
 	./ListStrings/15-arithmetic-operations
+	./ListStrings/17-sorting-algorithms
 )
