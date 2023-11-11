@@ -7,7 +7,6 @@ import (
 )
 
 func BinarySearch[T constraints.Ordered](a []T, x T) int {
-	// Set low and high boundaries
 	low, high := 0, len(a)-1
 
 	for low <= high {
@@ -17,10 +16,8 @@ func BinarySearch[T constraints.Ordered](a []T, x T) int {
 		}
 
 		if a[mid] < x {
-			// If target is greater, focus on the right half
 			low = mid + 1
 		} else {
-			// If target is less, focus on the left half
 			high = mid - 1
 		}
 	}
