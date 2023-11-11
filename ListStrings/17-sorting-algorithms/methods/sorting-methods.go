@@ -55,40 +55,40 @@ func merge[T constraints.Ordered](left, right []T) []T {
 	}
 	return sortedArray
 }
-func MergeSort[T constraints.Ordered](arr []T) []T {
-	if len(arr) <= 1 {
-		return arr
+func MergeSort[T constraints.Ordered](s []T) []T {
+	if len(s) <= 1 {
+		return s
 	}
-	middle := len(arr) / 2
-	left := MergeSort(arr[:middle])
-	right := MergeSort(arr[middle:])
+	middle := len(s) / 2
+	left := MergeSort(s[:middle])
+	right := MergeSort(s[middle:])
 	return merge(left, right)
 }
 
-func Quicksort[T constraints.Ordered](a []T) []T {
-	if len(a) < 2 {
-		return a
+func Quicksort[T constraints.Ordered](s []T) []T {
+	if len(s) < 2 {
+		return s
 	}
 
-	left, right := 0, len(a)-1
+	left, right := 0, len(s)-1
 
-	pivot := rand.Int() % len(a)
+	pivot := rand.Int() % len(s)
 
-	a[pivot], a[right] = a[right], a[pivot]
+	s[pivot], s[right] = s[right], s[pivot]
 
-	for i := range a {
-		if a[i] < a[right] {
-			a[left], a[i] = a[i], a[left]
+	for i := range s {
+		if s[i] < s[right] {
+			s[left], s[i] = s[i], s[left]
 			left++
 		}
 	}
 
-	a[left], a[right] = a[right], a[left]
+	s[left], s[right] = s[right], s[left]
 
-	Quicksort(a[:left])
-	Quicksort(a[left+1:])
+	Quicksort(s[:left])
+	Quicksort(s[left+1:])
 
-	return a
+	return s
 }
 
 func StoogeSort[T constraints.Ordered](s []T, low int, high int) []T {
