@@ -68,10 +68,6 @@ func reverseResult(input []string) []string {
 	return input
 }
 
-func convertToDecimal() {
-
-}
-
 func main() {
 
 	var numberToConvert string
@@ -99,13 +95,22 @@ func main() {
 		return
 	}
 
-	if newBase != 10 {
+	var inputNumberToInt int
 
-	}
-
-	if base < newBase {
-		fmt.Println(convertFromLowToHighBase(convertListToNumber(strings.Split(numberToConvert, "")), base))
+	if newBase != 10 || base != 10 {
+		inputNumberToInt, err = strconv.Atoi(numberToConvert)
+		if err != nil {
+			log.Println(err.Error())
+			return
+		}
+		inputNumberToInt = convertFromLowToHighBase(inputNumberToInt, base)
+		fmt.Println(convertFromHighToLower(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
 	} else {
-		fmt.Println(convertFromHighToLower(convertListToNumber(strings.Split(numberToConvert, "")), newBase))
+		if base < newBase {
+			fmt.Println(convertFromLowToHighBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), base))
+		} else {
+			fmt.Println(convertFromHighToLower(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
+		}
 	}
+
 }
