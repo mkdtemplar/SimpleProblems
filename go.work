@@ -27,6 +27,7 @@ use (
 	./ListStrings/13-first-100-Fibonacci-numbers
 	./ListStrings/14-list-of-digits
 	./ListStrings/15-arithmetic-operations
+	./ListStrings/16-convert-number-to-base
 	./ListStrings/17-sorting-algorithms
 	./ListStrings/18-binary-search
 	./ListStrings/19-rectangular-frame
