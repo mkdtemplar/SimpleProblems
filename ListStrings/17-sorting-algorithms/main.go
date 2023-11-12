@@ -8,6 +8,7 @@ import (
 
 func main() {
 	var inputSlice = []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
+	//var choiceSlice = [4]int{1, 2, 3, 4}
 	var choiceSwitch int
 	var reRunChoice = true
 	var choiceString string
