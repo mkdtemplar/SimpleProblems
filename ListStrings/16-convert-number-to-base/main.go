@@ -68,41 +68,34 @@ func reverseResult(input []string) []string {
 	return input
 }
 
-func main() {
+func errorCheck(err error) {
+	if err != nil {
+		log.Println(err.Error())
+		return
+	}
+}
 
+func main() {
+	var inputNumberToInt int
 	var numberToConvert string
 	var base int
 	var newBase int
 
 	fmt.Print("Enter the number to convert: ")
 	_, err := fmt.Scan(&numberToConvert)
-	if err != nil {
-		log.Println(err.Error())
-		return
-	}
+	errorCheck(err)
 
 	fmt.Print("Enter the base of the number: ")
 	_, err = fmt.Scan(&base)
-	if err != nil {
-		log.Println(err.Error())
-		return
-	}
+	errorCheck(err)
 
 	fmt.Print("Enter new base: ")
 	_, err = fmt.Scan(&newBase)
-	if err != nil {
-		log.Println(err.Error())
-		return
-	}
-
-	var inputNumberToInt int
+	errorCheck(err)
 
 	if newBase != 10 || base != 10 {
 		inputNumberToInt, err = strconv.Atoi(numberToConvert)
-		if err != nil {
-			log.Println(err.Error())
-			return
-		}
+		errorCheck(err)
 		inputNumberToInt = convertFromLowToHighBase(inputNumberToInt, base)
 		fmt.Println(convertToDecimalBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
 	} else {
@@ -112,5 +105,4 @@ func main() {
 			fmt.Println(convertToDecimalBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
 		}
 	}
-
 }
