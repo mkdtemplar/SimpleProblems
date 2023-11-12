@@ -24,7 +24,7 @@ func convertListToNumber(numSlice []string) int {
 	return convertedNumber
 }
 
-func convertFromHighToLower(num int, newBase int) string {
+func convertToDecimalBase(num int, newBase int) string {
 	var resultSlice []string
 
 	for num != 0 {
@@ -104,12 +104,12 @@ func main() {
 			return
 		}
 		inputNumberToInt = convertFromLowToHighBase(inputNumberToInt, base)
-		fmt.Println(convertFromHighToLower(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
+		fmt.Println(convertToDecimalBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
 	} else {
 		if base < newBase {
 			fmt.Println(convertFromLowToHighBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), base))
 		} else {
-			fmt.Println(convertFromHighToLower(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
+			fmt.Println(convertToDecimalBase(convertListToNumber(strings.Split(strconv.Itoa(inputNumberToInt), "")), newBase))
 		}
 	}
 
