@@ -1,12 +1,14 @@
 package methods
 
 import (
+	"fmt"
 	"math/rand"
 
 	"golang.org/x/exp/constraints"
 )
 
 func SelectionSort[T constraints.Ordered](s []T) []T {
+	fmt.Printf("Sorting slice %v using Selection sort\n", s)
 	var minIndex int
 	var temp T
 	for i := 0; i < len(s)-1; i++ {
@@ -24,6 +26,7 @@ func SelectionSort[T constraints.Ordered](s []T) []T {
 }
 
 func InsertionSort[T constraints.Ordered](s []T) []T {
+	fmt.Printf("Sorting slice %v using Insertion sort\n", s)
 	for i := 1; i < len(s); i++ {
 		for j := 0; j < i; j++ {
 			if s[j] > s[i] {
@@ -66,6 +69,7 @@ func MergeSort[T constraints.Ordered](s []T) []T {
 }
 
 func Quicksort[T constraints.Ordered](s []T) []T {
+
 	if len(s) < 2 {
 		return s
 	}
@@ -92,6 +96,7 @@ func Quicksort[T constraints.Ordered](s []T) []T {
 }
 
 func StoogeSort[T constraints.Ordered](s []T, low int, high int) []T {
+
 	if low >= high {
 		return s
 	}
