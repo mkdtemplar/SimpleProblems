@@ -27,8 +27,8 @@ func Test_eval(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := StringEval(tt.args.expr); got != tt.want {
-				t.Errorf("StringEval() = %v, want %v", got, tt.want)
+			if got := sumOfCombinations(tt.args.expr); got != tt.want {
+				t.Errorf("sumOfCombinations() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -58,7 +58,7 @@ func Test_generate(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			generate(tt.args.digits, tt.args.fillers, tt.args.expr, tt.args.index)
+			combinations(tt.args.digits, tt.args.fillers, tt.args.expr, tt.args.index)
 		})
 	}
 }

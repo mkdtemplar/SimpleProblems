@@ -6,8 +6,8 @@ import (
 	"strconv"
 )
 
-// StringEval A function that evaluates a string expression and returns the result
-func StringEval(expr string) int {
+// sumOfCombinations A function that evaluates a string expression and returns the sum
+func sumOfCombinations(expr string) int {
 	sum := 0
 	sign := '+'
 	// Loop through each character in the expression
@@ -36,30 +36,30 @@ func StringEval(expr string) int {
 			sign = int32(c)
 		}
 	}
-	// Return the final sum
+
 	return sum
 }
 
 // A function that generates all possible expressions and prints those that equal 100
-func generate(digits string, fillers []string, expr string, index int) {
+func combinations(digits string, operator []string, expr string, index int) {
 	// If the index reaches the end of the digits, evaluate the expression and print it if it equals 100
 	if index == len(digits) {
-		if StringEval(expr) == 100 {
+		if sumOfCombinations(expr) == 100 {
 			fmt.Printf("%s = 100\n", expr)
 		}
 		return
 	}
-	// Loop through each filler and append it to the expression along with the next digit
-	for _, filler := range fillers {
-		generate(digits, fillers, fmt.Sprintf("%s%s%s", expr, filler, string(digits[index])), index+1)
+	// Loop through each operator and append it to the expression along with the next digit
+	for _, filler := range operator {
+		combinations(digits, operator, fmt.Sprintf("%s%s%s", expr, filler, string(digits[index])), index+1)
 	}
 }
 
 func main() {
-	// Define the digits and the fillers
+	// Define the digits and the operator
 	digits := "123456789"
-	fillers := []string{"+", "-", ""}
-	// Call the generate function with the first digit and index 1
-	generate(digits, fillers, string(digits[0]), 1)
+	operator := []string{"+", "-", ""}
+	// Call the combinations function with the first digit and index 1
+	combinations(digits, operator, string(digits[0]), 1)
 
 }
