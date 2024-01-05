@@ -2,77 +2,96 @@ package main
 
 import "fmt"
 
-type Node struct {
-	Neighbors []*Node
-}
+// Graph structure
 type Graph struct {
-	nodes map[int]*Node
+	vertices []*Vertex
 }
 
-func NewGraph() *Graph {
-	return &Graph{
-		nodes: make(map[int]*Node),
-	}
+// Vertex Adjacent Vertex
+type Vertex struct {
+	key      int
+	adjacent []*Vertex
 }
-func (g *Graph) AddNode(nodeID int) {
-	if _, exists := g.nodes[nodeID]; !exists {
-		newNode := &Node{
-			Neighbors: []*Node{},
-		}
-		g.nodes[nodeID] = newNode
-		fmt.Println("New node added to graph")
+
+// AddVertex will add a vertex to a graph
+func (g *Graph) AddVertex(vertex int) error {
+	if contains(g.vertices, vertex) {
+		err := fmt.Errorf("vertex %d already exists", vertex)
+		return err
 	} else {
-		fmt.Println("Node already exists!")
+		v := &Vertex{
+			key: vertex,
+		}
+		g.vertices = append(g.vertices, v)
 	}
+	return nil
 }
-func (g *Graph) AddEdge(nodeID1, nodeID2 int) {
-	node1 := g.nodes[nodeID1]
-	node2 := g.nodes[nodeID2]
 
-	node1.Neighbors = append(node1.Neighbors, node2)
-	node2.Neighbors = append(node2.Neighbors, node1)
+// AddEdge will add ad edge from a vertex to a vertex
+func (g *Graph) AddEdge(to, from int) error {
+	toVertex := g.getVertex(to)
+	fromVertex := g.getVertex(from)
+	if toVertex == nil || fromVertex == nil {
+		return fmt.Errorf("not a valid edge from %d ---> %d", from, to)
+	} else if contains(fromVertex.adjacent, toVertex.key) {
+		return fmt.Errorf("edge from vertex %d ---> %d already exists", fromVertex.key, toVertex.key)
+	} else {
+		fromVertex.adjacent = append(fromVertex.adjacent, toVertex)
+	}
+	return nil
 }
-func (g *Graph) removeEdge(node, neighbor *Node) {
-	index := -1
-	for i, n := range node.Neighbors {
-		if n == neighbor {
-			index = i
-			break
+
+// getVertex will return a vertex point if exists or return nil
+func (g *Graph) getVertex(vertex int) *Vertex {
+	for i, v := range g.vertices {
+		if v.key == vertex {
+			return g.vertices[i]
 		}
 	}
-	if index != -1 {
-		node.Neighbors = append(node.Neighbors[:index], node.Neighbors[index+1:]...)
+	return nil
+}
+
+func contains(v []*Vertex, key int) bool {
+	for _, v := range v {
+		if v.key == key {
+			return true
+		}
+	}
+	return false
+}
+
+func (g *Graph) Print() {
+	for _, v := range g.vertices {
+		fmt.Printf("%d -> ", v.key)
+		for _, v := range v.adjacent {
+			fmt.Printf("%d ", v.key)
+		}
+		fmt.Println()
 	}
 }
 
-func (g *Graph) RemoveEdge(node, neighbor *Node) {
-	g.removeEdge(node, neighbor)
-	g.removeEdge(neighbor, node)
-	fmt.Println("Edge successfully removed")
-}
-func (g *Graph) RemoveNode(nodeID int) {
-	node, exists := g.nodes[nodeID]
-	if !exists {
-		fmt.Println("Node doesn't exist")
+func errorHandling(err error) {
+	if err != nil {
 		return
 	}
+}
 
-	for _, neighbor := range node.Neighbors {
-		g.RemoveEdge(node, neighbor)
-	}
-	delete(g.nodes, nodeID)
-	fmt.Println("Node deleted successfully")
+func PrintEgDirectedGraph() {
+	g := &Graph{}
+	err := g.AddVertex(1)
+	errorHandling(err)
+	err = g.AddVertex(2)
+	errorHandling(err)
+
+	g.AddVertex(3)
+	g.AddEdge(1, 2)
+	g.AddEdge(2, 3)
+	g.AddEdge(1, 3)
+	g.AddEdge(3, 1)
+	g.Print()
 }
 
 func main() {
-	g := NewGraph()
-	g.AddNode(10)
-	g.AddNode(20)
-	g.AddNode(30)
-	g.AddNode(40)
-	g.AddEdge(10, 20)
-	g.AddEdge(20, 30)
-	g.AddEdge(20, 40)
-	g.AddEdge(30, 40)
+	PrintEgDirectedGraph()
 
 }
