@@ -5,14 +5,14 @@ import (
 	"math"
 )
 
-func leapYearRule(yearDuration float32) []int  {
+func leapYearRule(yearDuration float32) []int {
 	var currentYear = 2023
 	var leapYear []int
-	var difference = 0.0
+	var difference float32
 
 	for difference < 1 && currentYear <= 2043 {
 		fraction := yearDuration - float32(math.Trunc(float64(yearDuration)))
-		difference += float64(fraction)
+		difference += fraction
 
 		if difference >= 0.5 {
 			difference -= 1
@@ -22,10 +22,10 @@ func leapYearRule(yearDuration float32) []int  {
 	}
 
 	return leapYear
-	
+
 }
 
 func main() {
 	fmt.Println(leapYearRule(365.26))
-	
+
 }
