@@ -34,4 +34,5 @@ use (
 	./ListStrings/20-pig-latin
 	./Intermediate/01-outputs-all-possibilities
 	./Intermediate/03-data-structure-for-graphs
+	./Intermediate/02-leap-year-rule
 )
