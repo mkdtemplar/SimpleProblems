@@ -1,0 +1,18 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+input InputYear {
+  startYear: Int!
+  endYear: Int!
+  yearDuration: Float!
+
+}
+
+type LeapYears {
+  leapYear: [Int!]
+}
+
+type Query {
+  getLeapYears(input: InputYear!): LeapYears!
+}
