@@ -13,7 +13,7 @@ import (
 
 // GetLeapYears is the resolver for the getLeapYears field.
 func (r *queryResolver) GetLeapYears(ctx context.Context, input model.InputYear) (*model.LeapYears, error) {
-	//var leapYear []int
+
 	var difference float64
 
 	for difference < 1 && input.StartYear <= input.EndYear {
