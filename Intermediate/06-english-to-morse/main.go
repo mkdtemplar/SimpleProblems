@@ -59,6 +59,7 @@ func convertToMorseCode(text string) string {
 func main() {
 
 	text := processTextFromFile("text.txt")
+	fmt.Println(text)
 
 	morseCodeConvert := convertToMorseCode(text)
 	fmt.Println("Blank space separator /")
