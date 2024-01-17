@@ -1,4 +1,4 @@
-go 1.21.5
+go 1.21.6
 
 use (
 	./Elementary/01-HelloWorld
@@ -36,4 +36,5 @@ use (
 	./Intermediate/03-data-structure-for-graphs
 	./Intermediate/02-leap-year-rule
 	./Intermediate/02-leap-year-rule/02-1-leap-year-GraphQL
+	./Intermediate/06-english-to-morse
 )
