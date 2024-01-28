@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Vertex[T comparable] struct {
 	key      T
@@ -11,13 +13,14 @@ type Graph[T comparable] struct {
 	vertices []*Vertex[T]
 }
 
-func (g *Graph[T]) AddVertex(k T) {
+func (g *Graph[T]) AddVertex(k T) []*Vertex[T] {
 	if contains(g.vertices, k) {
 		err := fmt.Errorf("vertex %v not added becouse allredy axists", k)
 		fmt.Println(err.Error())
 	} else {
 		g.vertices = append(g.vertices, &Vertex[T]{key: k})
 	}
+	return g.vertices
 }
 
 func (g *Graph[T]) AddEdge(from T, to T) {
