@@ -2,47 +2,40 @@ package main
 
 import "fmt"
 
-// Graph structure
-type Graph struct {
-	vertices []*Vertex
+type Vertex[T comparable] struct {
+	key      T
+	adjacent []*Vertex[T]
 }
 
-// Vertex Adjacent Vertex
-type Vertex struct {
-	key      int
-	adjacent []*Vertex
+type Graph[T comparable] struct {
+	vertices []*Vertex[T]
 }
 
-// AddVertex will add a vertex to a graph
-func (g *Graph) AddVertex(vertex int) error {
-	if contains(g.vertices, vertex) {
-		err := fmt.Errorf("vertex %d already exists", vertex)
-		return err
+func (g *Graph[T]) AddVertex(k T) {
+	if contains(g.vertices, k) {
+		err := fmt.Errorf("vertex %v not added becouse allredy axists", k)
+		fmt.Println(err.Error())
 	} else {
-		v := &Vertex{
-			key: vertex,
-		}
-		g.vertices = append(g.vertices, v)
+		g.vertices = append(g.vertices, &Vertex[T]{key: k})
 	}
-	return nil
 }
 
-// AddEdge will add ad edge from a vertex to a vertex
-func (g *Graph) AddEdge(to, from int) error {
-	toVertex := g.getVertex(to)
+func (g *Graph[T]) AddEdge(from T, to T) {
 	fromVertex := g.getVertex(from)
-	if toVertex == nil || fromVertex == nil {
-		return fmt.Errorf("not a valid edge from %d ---> %d", from, to)
-	} else if contains(fromVertex.adjacent, toVertex.key) {
-		return fmt.Errorf("edge from vertex %d ---> %d already exists", fromVertex.key, toVertex.key)
+	toVertex := g.getVertex(to)
+
+	if fromVertex == nil || toVertex == nil {
+		err := fmt.Errorf("invalid edge (%v --> %v) ", from, to)
+		fmt.Println(err.Error())
+	} else if contains(fromVertex.adjacent, to) {
+		err := fmt.Errorf("edge allreday exists (%v --> %v) ", from, to)
+		fmt.Println(err.Error())
 	} else {
 		fromVertex.adjacent = append(fromVertex.adjacent, toVertex)
 	}
-	return nil
 }
 
-// getVertex will return a vertex point if exists or return nil
-func (g *Graph) getVertex(vertex int) *Vertex {
+func (g *Graph[T]) getVertex(vertex T) *Vertex[T] {
 	for i, v := range g.vertices {
 		if v.key == vertex {
 			return g.vertices[i]
@@ -51,47 +44,34 @@ func (g *Graph) getVertex(vertex int) *Vertex {
 	return nil
 }
 
-func contains(v []*Vertex, key int) bool {
-	for _, v := range v {
-		if v.key == key {
+func (g *Graph[T]) Print() {
+	for _, v := range g.vertices {
+		fmt.Printf("\nVertex %v : ", v.key)
+		for _, v := range v.adjacent {
+			fmt.Printf(" %v ", v.key)
+		}
+	}
+}
+
+func contains[T comparable](s []*Vertex[T], k T) bool {
+	for _, v := range s {
+		if k == v.key {
 			return true
 		}
 	}
 	return false
 }
 
-func (g *Graph) Print() {
-	for _, v := range g.vertices {
-		fmt.Printf("%d -> ", v.key)
-		for _, v := range v.adjacent {
-			fmt.Printf("%d ", v.key)
-		}
-		fmt.Println()
-	}
-}
-
-func errorHandling(err error) {
-	if err != nil {
-		return
-	}
-}
-
-func PrintEgDirectedGraph() {
-	g := &Graph{}
-	err := g.AddVertex(1)
-	errorHandling(err)
-	err = g.AddVertex(2)
-	errorHandling(err)
-
-	g.AddVertex(3)
-	g.AddEdge(1, 2)
-	g.AddEdge(2, 3)
-	g.AddEdge(1, 3)
-	g.AddEdge(3, 1)
-	g.Print()
-}
-
 func main() {
-	PrintEgDirectedGraph()
+	test := Graph[int]{}
 
+	for i := 0; i < 5; i++ {
+		test.AddVertex(i)
+	}
+
+	test.AddEdge(1, 2)
+	test.AddEdge(1, 3)
+	test.AddEdge(2, 4)
+
+	test.Print()
 }
