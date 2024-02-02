@@ -40,4 +40,5 @@ use (
 	./Intermediate/07-longest-palindromic-substring
 	./Intermediate/04-DOT-representation-graph
 	./Intermediate/05-automatically-generates-essays
+	./Intermediate/08-interface-for-list
 )
