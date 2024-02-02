@@ -2,20 +2,10 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"strings"
+
+	"github.com/mkdtemplar/SimpleProblems/Intermediate/06-english-to-morse/pkg"
 )
-
-func processTextFromFile(filename string) string {
-
-	text, err := os.ReadFile(filename)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return strings.ToUpper(string(text))
-}
 
 var morseCode = map[string]string{
 	"A": ".-",
@@ -58,7 +48,7 @@ func convertToMorseCode(text string) string {
 
 func main() {
 
-	text := processTextFromFile("text.txt")
+	text := pkg.ProcessTextFromFile("text.txt")
 	fmt.Println(text)
 
 	morseCodeConvert := convertToMorseCode(text)

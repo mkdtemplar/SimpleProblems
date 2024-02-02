@@ -38,5 +38,6 @@ use (
 	./Intermediate/02-leap-year-rule/02-1-leap-year-GraphQL
 	./Intermediate/06-english-to-morse
 	./Intermediate/07-longest-palindromic-substring
-	Intermediate/04-DOT-representation-graph
+	./Intermediate/04-DOT-representation-graph
+	./Intermediate/05-automatically-generates-essays
 )
