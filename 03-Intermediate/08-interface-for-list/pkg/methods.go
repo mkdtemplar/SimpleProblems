@@ -10,6 +10,10 @@ type Lists struct {
 	List []int
 }
 
+func NewLists(list []int) ListInterface {
+	return &Lists{List: list}
+}
+
 func (l *Lists) MaxElement() string {
 	return fmt.Sprintf("Max element in the List is %v", methods.MergeSort(l.List)[len(l.List)-1])
 }
@@ -25,10 +29,10 @@ func (l *Lists) Find(element int) string {
 	return fmt.Sprintf("Element %v found in the List", element)
 }
 
-type ListInterface[T comparable] interface {
-	Find(T) T
-	MaxElement() T
-	MinElement() T
+type ListInterface interface {
+	Find(element int) string
+	MaxElement() string
+	MinElement() string
 }
 
 func BinarySearch(arr []int, target int) int {
