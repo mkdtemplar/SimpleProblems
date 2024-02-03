@@ -12,20 +12,20 @@ use (
 	./01-Elementary/09-guessing-game
 	./01-Elementary/10-print-leap-years
 	./01-Elementary/11-SumOfAlternatingSeries
-	./02-ListStrings/01-largest-element-in-List
-	./02-ListStrings/02-reverse-List-in-place
-	./02-ListStrings/03-element-occurs-in-List
-	./02-ListStrings/04-odd-positions-in-List
-	./02-ListStrings/05-running-total-of-a-List
+	./02-ListStrings/01-largest-element-in-list
+	./02-ListStrings/02-reverse-list-in-place
+	./02-ListStrings/03-element-occurs-in-list
+	./02-ListStrings/04-odd-positions-in-list
+	./02-ListStrings/05-running-total-of-a-list
 	./02-ListStrings/06-palindrome
 	./02-ListStrings/07-three-functions
 	./02-ListStrings/08-perfect-squares
 	./02-ListStrings/09-concatenates-two-lists
 	./02-ListStrings/10_combines_two_lists
 	./02-ListStrings/11-merging-two-sorted-lists
-	./02-ListStrings/12-rotates-a-List-by-k-elements
+	./02-ListStrings/12-rotates-a-list-by-k-elements
 	./02-ListStrings/13-first-100-Fibonacci-numbers
-	./02-ListStrings/14-List-of-digits
+	./02-ListStrings/14-list-of-digits
 	./02-ListStrings/15-arithmetic-operations
 	./02-ListStrings/16-convert-number-to-base
 	./02-ListStrings/17-sorting-algorithms
@@ -40,6 +40,6 @@ use (
 	./03-Intermediate/07-longest-palindromic-substring
 	./03-Intermediate/04-DOT-representation-graph
 	./03-Intermediate/05-automatically-generates-essays
-	./03-Intermediate/08-interface-for-List
+	./03-Intermediate/08-interface-for-list
 	./03-Intermediate/09-fixed-chunk-of-memory
 )

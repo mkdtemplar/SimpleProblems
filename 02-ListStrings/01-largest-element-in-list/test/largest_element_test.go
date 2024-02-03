@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/mkdtemplar/SimpleProblems/ListStrings/01-largest-element-in-list/pkg"
+	"github.com/mkdtemplar/SimpleProblems/02-ListStrings/01-largest-element-in-List/pkg"
 )
 
 func TestLargestElement(t *testing.T) {

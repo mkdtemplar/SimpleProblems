@@ -1,6 +1,6 @@
 package main
 
-import "github.com/mkdtemplar/SimpleProblems/ListStrings/03-element-occurs-in-list/pkg"
+import "github.com/mkdtemplar/SimpleProblems/ListStrings/03-element-occurs-in-List/pkg"
 
 func main() {
 

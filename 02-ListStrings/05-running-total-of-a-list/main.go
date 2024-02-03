@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/mkdtemplar/SimpleProblems/ListStrings/05-running-total-of-a-list/pkg"
+	"github.com/mkdtemplar/SimpleProblems/ListStrings/05-running-total-of-a-List/pkg"
 )
 
 func main() {

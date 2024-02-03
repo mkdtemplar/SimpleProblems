@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	pkgrotatesliceelements "github.com/mkdtemplar/SimpleProblems/02-ListStrings/12-rotates-a-list-by-k-elements/pkg_rotate_slice_elements"
+	pkgrotatesliceelements "github.com/mkdtemplar/SimpleProblems/ListStrings/12-rotates-a-List-by-k-elements/pkg_rotate_slice_elements"
 )
 
 func main() {

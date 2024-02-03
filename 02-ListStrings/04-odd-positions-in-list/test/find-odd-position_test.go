@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/mkdtemplar/SimpleProblems/ListStrings/04-odd-position-in-list/pkg"
+	"github.com/mkdtemplar/SimpleProblems/ListStrings/04-odd-position-in-List/pkg"
 )
 
 func TestFindOddPosition(t *testing.T) {

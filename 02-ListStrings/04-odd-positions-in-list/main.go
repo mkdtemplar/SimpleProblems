@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/mkdtemplar/SimpleProblems/ListStrings/04-odd-position-in-list/pkg"
+	"github.com/mkdtemplar/SimpleProblems/ListStrings/04-odd-position-in-List/pkg"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/mkdtemplar/SimpleProblems/ListStrings/03-element-occurs-in-list/pkg"
+	"github.com/mkdtemplar/SimpleProblems/ListStrings/03-element-occurs-in-List/pkg"
 )
 
 func TestFindElement(t *testing.T) {
