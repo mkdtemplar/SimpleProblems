@@ -1,4 +1,4 @@
-module github.com/mkdtemplar/SimpleProblems/ListStrings/05-running-total-of-a-list
+module github.com/mkdtemplar/SimpleProblems/ListStrings/05-running-total-of-a-List
 
 go 1.21.3
 

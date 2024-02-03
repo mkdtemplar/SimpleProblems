@@ -12,20 +12,20 @@ use (
 	./Elementary/09-guessing-game
 	./Elementary/10-print-leap-years
 	./Elementary/11-SumOfAlternatingSeries
-	./ListStrings/01-largest-element-in-list
-	./ListStrings/02-reverse-list-in-place
-	./ListStrings/03-element-occurs-in-list
-	./ListStrings/04-odd-positions-in-list
-	./ListStrings/05-running-total-of-a-list
+	./ListStrings/01-largest-element-in-List
+	./ListStrings/02-reverse-List-in-place
+	./ListStrings/03-element-occurs-in-List
+	./ListStrings/04-odd-positions-in-List
+	./ListStrings/05-running-total-of-a-List
 	./ListStrings/06-palindrome
 	./ListStrings/07-three-functions
 	./ListStrings/08-perfect-squares
 	./ListStrings/09-concatenates-two-lists
 	./ListStrings/10_combines_two_lists
 	./ListStrings/11-merging-two-sorted-lists
-	./ListStrings/12-rotates-a-list-by-k-elements
+	./ListStrings/12-rotates-a-List-by-k-elements
 	./ListStrings/13-first-100-Fibonacci-numbers
-	./ListStrings/14-list-of-digits
+	./ListStrings/14-List-of-digits
 	./ListStrings/15-arithmetic-operations
 	./ListStrings/16-convert-number-to-base
 	./ListStrings/17-sorting-algorithms
@@ -40,5 +40,6 @@ use (
 	./Intermediate/07-longest-palindromic-substring
 	./Intermediate/04-DOT-representation-graph
 	./Intermediate/05-automatically-generates-essays
-	./Intermediate/08-interface-for-list
+	./Intermediate/08-interface-for-List
+	./Intermediate/09-fixed-chunk-of-memory
 )
