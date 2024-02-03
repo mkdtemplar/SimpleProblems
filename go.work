@@ -42,4 +42,5 @@ use (
 	./03-Intermediate/05-automatically-generates-essays
 	./03-Intermediate/08-interface-for-list
 	./03-Intermediate/09-fixed-chunk-of-memory
+	./03-Intermediate/12-Implement-binary-heap
 )
