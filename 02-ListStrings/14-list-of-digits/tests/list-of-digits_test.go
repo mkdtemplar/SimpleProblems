@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	methodsforlistofdigits "github.com/mkdtemplar/SimpleProblems/ListStrings/14-list-of-digits/methods-for-list-of-digits"
+	methodsforlistofdigits "github.com/mkdtemplar/SimpleProblems/02-ListStrings/14-list-of-digits/methods-for-list-of-digits"
 )
 
 func TestPrintListOfDigits(t *testing.T) {

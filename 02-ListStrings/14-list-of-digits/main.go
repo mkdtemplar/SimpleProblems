@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	methodsforlistofdigits "github.com/mkdtemplar/SimpleProblems/ListStrings/14-list-of-digits/methods-for-list-of-digits"
+	methodsforlistofdigits "github.com/mkdtemplar/SimpleProblems/02-ListStrings/14-list-of-digits/methods-for-list-of-digits"
 )
 
 func main() {

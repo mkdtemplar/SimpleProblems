@@ -3,8 +3,8 @@ package main
 import (
 	"strings"
 
+	processText "github.com/mkdtemplar/SimpleProblems/03-Intermediate/06-english-to-morse/pkg"
 	"github.com/mkdtemplar/SimpleProblems/Intermediate/03-data-structure-for-graphs/pkg"
-	processText "github.com/mkdtemplar/SimpleProblems/Intermediate/06-english-to-morse/pkg"
 )
 
 func main() {
