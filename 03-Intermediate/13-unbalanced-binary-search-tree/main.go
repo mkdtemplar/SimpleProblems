@@ -12,20 +12,20 @@ type Tree struct {
 	root *TreeNode
 }
 
-func (t *Tree) add(value int) *Tree {
-	t.root = t.addNode(t.root, value)
-	return t
+func (b *Tree) add(value int) *Tree {
+	b.root = b.addNode(b.root, value)
+	return b
 }
 
-func (t *Tree) addNode(root *TreeNode, value int) *TreeNode {
+func (b *Tree) addNode(root *TreeNode, value int) *TreeNode {
 	if root == nil {
 		return &TreeNode{value: value}
 	}
 
 	if value < root.value {
-		root.left = t.addNode(root.left, value)
+		root.left = b.addNode(root.left, value)
 	} else {
-		root.right = t.addNode(root.right, value)
+		root.right = b.addNode(root.right, value)
 	}
 
 	return root
@@ -82,7 +82,6 @@ func main() {
 	root.add(15)
 	root.add(1)
 	root.add(7)
-
 	root.add(5)
 
 	fmt.Println(levelOrder(root.root))
