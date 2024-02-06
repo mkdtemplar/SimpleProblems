@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 type TreeNode struct {
 	value int
@@ -10,6 +14,30 @@ type TreeNode struct {
 
 type Tree struct {
 	root *TreeNode
+}
+
+func (n *TreeNode) String() string {
+	return strconv.Itoa(n.value)
+}
+
+func (b *Tree) String() string {
+	sb := strings.Builder{}
+	b.inOrderTraversal(&sb)
+	return sb.String()
+
+}
+
+func (b *Tree) inOrderTraversal(sb *strings.Builder) {
+	b.inOrderTraversalByNode(sb, b.root)
+}
+
+func (b *Tree) inOrderTraversalByNode(sb *strings.Builder, root *TreeNode) {
+	if root == nil {
+		return
+	}
+	b.inOrderTraversalByNode(sb, root.left)
+	sb.WriteString(fmt.Sprintf("%s ", root))
+	b.inOrderTraversalByNode(sb, root.right)
 }
 
 func (b *Tree) add(value int) *Tree {
@@ -48,10 +76,9 @@ func (b *Tree) searchByNode(root *TreeNode, value int) (*TreeNode, bool) {
 	}
 }
 
-func (b  *Tree) remove(value int)  {
+func (b *Tree) remove(value int) {
 	b.removeByNode(b.root, value)
 }
-
 
 func (b *Tree) removeByNode(root *TreeNode, value int) *TreeNode {
 	if root == nil {
@@ -66,7 +93,7 @@ func (b *Tree) removeByNode(root *TreeNode, value int) *TreeNode {
 			return root.left
 		} else {
 			temp := root.left
-			for temp.right  != nil {
+			for temp.right != nil {
 				temp = temp.right
 			}
 			root.value = temp.value
@@ -74,7 +101,7 @@ func (b *Tree) removeByNode(root *TreeNode, value int) *TreeNode {
 		}
 	}
 	return root
-	
+
 }
 
 func levelOrder(root *TreeNode) [][]int {
@@ -133,6 +160,6 @@ func main() {
 	fmt.Println(levelOrder(tree.root))
 	fmt.Println(tree.search(15))
 
-	tree.remove(15)
-	fmt.Println(levelOrder(tree.root))
+	//tree.remove(15)
+	fmt.Println(tree)
 }
