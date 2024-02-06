@@ -31,6 +31,52 @@ func (b *Tree) addNode(root *TreeNode, value int) *TreeNode {
 	return root
 }
 
+func (b *Tree) search(value int) (*TreeNode, bool) {
+	return b.searchByNode(b.root, value)
+}
+
+func (b *Tree) searchByNode(root *TreeNode, value int) (*TreeNode, bool) {
+	if root == nil {
+		return nil, false
+	}
+	if value == root.value {
+		return root, true
+	} else if value < root.value {
+		return b.searchByNode(root.left, value)
+	} else {
+		return b.searchByNode(root.right, value)
+	}
+}
+
+func (b  *Tree) remove(value int)  {
+	b.removeByNode(b.root, value)
+}
+
+
+func (b *Tree) removeByNode(root *TreeNode, value int) *TreeNode {
+	if root == nil {
+		return root
+	}
+	if value > root.value {
+		root.right = b.removeByNode(root.right, value)
+	} else if value < root.value {
+		root.left = b.removeByNode(root.left, value)
+	} else {
+		if root.left == nil {
+			return root.left
+		} else {
+			temp := root.left
+			for temp.right  != nil {
+				temp = temp.right
+			}
+			root.value = temp.value
+			root.left = b.removeByNode(root.left, value)
+		}
+	}
+	return root
+	
+}
+
 func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return [][]int{}
@@ -75,14 +121,18 @@ func levelOrder(root *TreeNode) [][]int {
 
 func main() {
 
-	root := &Tree{}
-	root = root.add(8)
+	tree := &Tree{}
+	tree = tree.add(8)
 
-	root.add(4)
-	root.add(15)
-	root.add(1)
-	root.add(7)
-	root.add(5)
+	tree.add(4)
+	tree.add(15)
+	tree.add(1)
+	tree.add(7)
+	tree.add(5)
 
-	fmt.Println(levelOrder(root.root))
+	fmt.Println(levelOrder(tree.root))
+	fmt.Println(tree.search(15))
+
+	tree.remove(15)
+	fmt.Println(levelOrder(tree.root))
 }
