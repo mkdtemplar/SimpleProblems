@@ -149,16 +149,15 @@ func levelOrder(root *TreeNode) [][]int {
 func main() {
 
 	tree := &Tree{}
-	tree = tree.add(8)
+	tree = tree.add(35)
 
-	tree.add(4)
-	tree.add(15)
-	tree.add(1)
-	tree.add(7)
-	tree.add(5)
+	tree.add(21)
+	tree.add(48)
+	tree.add(13)
+	tree.add(29)
+	tree.add(32)
 
 	fmt.Println(levelOrder(tree.root))
-	fmt.Println(tree.search(15))
 
 	//tree.remove(15)
 	fmt.Println(tree)
