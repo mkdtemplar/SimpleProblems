@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	list := pkg.NewLists([]int{5, 1, 7, 9, 0, 32, 34, 56, 8})
+	list := pkg.NewList([]int{5, 1, 7, 9, 0, 32, 34, 56, 8})
 	fmt.Println(list.Find(32))
 	fmt.Println(list.MaxElement())
 	fmt.Println(list.MinElement())

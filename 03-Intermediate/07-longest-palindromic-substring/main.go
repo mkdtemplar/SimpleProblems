@@ -21,7 +21,7 @@ func longestPalindrome(s string) string {
 	end := 0
 	// Consider all substrings of length from 1 to n
 	for i := 0; i < n; i++ {
-		for j := i; j < n; j++ {
+		for j := i; j < n; j++ { // separate concerns
 			// Check if the substring s[i:j+1] is a palindrome
 			if isPalindrome(s[i : j+1]) {
 				// Update the result if the substring is longer than the current longest palindrome
