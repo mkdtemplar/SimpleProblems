@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Function to check if a string is a palindrome
 func isPalindrome(s string) bool {
@@ -13,31 +15,36 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+func maxLengthPalindrome(s []string) string {
+	var maxLength = len(s[0])
+	index := 0
+
+	for i, e := range s {
+		if len(e) > maxLength {
+			maxLength = len(e)
+			index = i
+		}
+	}
+	return s[index]
+}
+
 // Function to find the longest palindromic substring of a given string
 func longestPalindrome(s string) string {
-	n := len(s)
-	maxLength := 0
-	start := 0
-	end := 0
-	// Consider all substrings of length from 1 to n
-	for i := 0; i < n; i++ {
-		for j := i; j < n; j++ { // separate concerns
-			// Check if the substring s[i:j+1] is a palindrome
-			if isPalindrome(s[i : j+1]) {
-				// Update the result if the substring is longer than the current longest palindrome
-				if j-i+1 > maxLength {
-					maxLength = j - i + 1
-					start = i
-					end = j
-				}
+	var palindromes []string
+
+	for i := 0; i < len(s); i++ {
+		for j := i; j < len(s); j++ {
+			if isPalindrome(s[i:j+1]) && len(s[i:j+1]) > 1 {
+				palindromes = append(palindromes, s[i:j+1])
 			}
 		}
 	}
+
 	// Return the longest palindromic substring
-	return s[start : end+1]
+	return maxLengthPalindrome(palindromes)
 }
 
 func main() {
-	fmt.Println(longestPalindrome("palindromeanavolimilovanacheck"))
+	fmt.Println(longestPalindrome("asdfasdf1234321asd32"))
 
 }
