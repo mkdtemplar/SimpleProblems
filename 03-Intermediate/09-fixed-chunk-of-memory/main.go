@@ -9,14 +9,6 @@ import (
 
 type List pkg.List
 
-func (l *List) isValid() error {
-	if len(l.List) == 100 {
-		return errors.New("out of memory")
-	}
-
-	return nil
-}
-
 //Implement the interface from other package
 //Add new is valid method
 //new constructor which returns both list and error
