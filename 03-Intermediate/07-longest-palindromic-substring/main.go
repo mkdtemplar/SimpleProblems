@@ -57,6 +57,7 @@ func main() {
 	maxStringChan := make(chan string)
 
 	palindromes := <-longestPalindrome("asdfasdf1234321asd32", strChan)
+	fmt.Println(palindromes)
 
 	maxSubString := <-maxLengthPalindrome(palindromes, maxStringChan)
 	fmt.Println(maxSubString)
