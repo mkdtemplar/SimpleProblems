@@ -60,4 +60,7 @@ func main() {
 
 	maxSubString := <-maxLengthPalindrome(palindromes, maxStringChan)
 	fmt.Println(maxSubString)
+
+	defer close(strChan)
+	defer close(maxStringChan)
 }
