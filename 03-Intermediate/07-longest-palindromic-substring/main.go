@@ -13,6 +13,7 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+// Function to return longest palindrome substring
 func maxLengthPalindrome(s []string, strChan chan string) chan string {
 
 	var maxLength = len(s[0])
@@ -31,7 +32,7 @@ func maxLengthPalindrome(s []string, strChan chan string) chan string {
 
 }
 
-// Function to find the longest palindromic substring of a given string
+// Function to find all palindromes
 func longestPalindrome(s string, strChan chan []string) chan []string {
 	var palindromes []string
 
@@ -46,7 +47,6 @@ func longestPalindrome(s string, strChan chan []string) chan []string {
 		strChan <- palindromes
 	}()
 
-	// Return the longest palindromic substring
 	return strChan
 
 }
@@ -60,5 +60,4 @@ func main() {
 
 	maxSubString := <-maxLengthPalindrome(palindromes, maxStringChan)
 	fmt.Println(maxSubString)
-
 }
