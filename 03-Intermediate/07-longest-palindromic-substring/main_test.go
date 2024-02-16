@@ -65,8 +65,7 @@ func Test_longestPalindrome(t *testing.T) {
 
 func Test_maxLengthPalindrome(t *testing.T) {
 	type args struct {
-		s       []string
-		strChan chan string
+		s []string
 	}
 	tests := []struct {
 		name string
@@ -74,18 +73,17 @@ func Test_maxLengthPalindrome(t *testing.T) {
 		want string
 	}{
 		{
-			name: "maxLengthPalindrome",
+			name: "getMaxLengthPalindrome",
 			args: args{
-				s:       []string{"1234321", "23432", "343"},
-				strChan: make(chan string),
+				s: []string{"1234321", "23432", "343"},
 			},
 			want: "1234321",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := <-maxLengthPalindrome(tt.args.s, tt.args.strChan); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("maxLengthPalindrome() = %v, want %v", got, tt.want)
+			if got := getMaxLengthPalindrome(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("getMaxLengthPalindrome() = %v, want %v", got, tt.want)
 			}
 		})
 	}

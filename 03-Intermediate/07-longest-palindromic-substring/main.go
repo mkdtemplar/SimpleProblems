@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
+
+var wg *sync.WaitGroup
 
 // Function to check if a string is a palindrome
 func isPalindrome(s string) bool {
@@ -14,38 +19,39 @@ func isPalindrome(s string) bool {
 }
 
 // Function to return longest palindrome substring
-func maxLengthPalindrome(s []string, strChan chan string) chan string {
-
+func getMaxLengthPalindrome(s []string) string {
 	var maxLength = len(s[0])
 	index := 0
-	go func() {
-		for i, e := range s {
-			if len(e) > maxLength {
-				maxLength = len(e)
-				index = i
-			}
+
+	for i, e := range s {
+		if len(e) > maxLength {
+			maxLength = len(e)
+			index = i
 		}
-		strChan <- s[index]
-	}()
+	}
 
-	return strChan
-
+	return s[index]
 }
 
 // Function to find all palindromes
-func longestPalindrome(s string, strChan chan []string) chan []string {
+func longestPalindrome(s string, strChan chan []string, wg *sync.WaitGroup) chan []string {
 	var palindromes []string
-
-	go func() {
-		for i := 0; i < len(s); i++ {
+	// go routines inside for loop
+	for i := 0; i < len(s); i++ {
+		wg.Add(1)
+		i := i
+		go func(wg *sync.WaitGroup) {
+			defer wg.Done()
 			for j := i; j < len(s); j++ {
 				if isPalindrome(s[i:j+1]) && len(s[i:j+1]) > 1 {
 					palindromes = append(palindromes, s[i:j+1])
 				}
 			}
-		}
-		strChan <- palindromes
-	}()
+			wg.Wait()
+		}(wg)
+
+	}
+	strChan <- palindromes
 
 	return strChan
 
@@ -56,10 +62,10 @@ func main() {
 	strChan := make(chan []string)
 	maxStringChan := make(chan string)
 
-	palindromes := <-longestPalindrome("asdfasdf1234321asd32", strChan)
+	palindromes := <-longestPalindrome("asdfasdf1234321asd32", strChan, wg)
 	fmt.Println(palindromes)
 
-	maxSubString := <-maxLengthPalindrome(palindromes, maxStringChan)
+	maxSubString := getMaxLengthPalindrome(palindromes)
 	fmt.Println(maxSubString)
 
 	defer close(strChan)
