@@ -21,20 +21,19 @@ func longestPalindrome(s string, strChan chan string) chan string {
 	var maxPalindrome string
 	var wg sync.WaitGroup
 	for i := 0; i < len(s); i++ {
-		k := i
-		wg.Add(1)
-		go func(str chan string) {
-			defer wg.Done()
-			for j := k; j < len(s); j++ {
-				if isPalindrome(s[k:j+1]) && len(s[k:j+1]) > 1 {
-					if len(maxPalindrome) < len(s[k:j+1]) {
-						maxPalindrome = s[k : j+1]
+		for j := i; j < len(s); j++ {
+			j := j
+			wg.Add(1)
+			go func(str string) {
+				defer wg.Done()
+				if isPalindrome(s[i:j+1]) && len(s[i:j+1]) > 1 {
+					if len(maxPalindrome) < len(s[i:j+1]) {
+						maxPalindrome = s[i : j+1]
 					}
 				}
-
-			}
-			strChan <- maxPalindrome
-		}(strChan)
+				strChan <- maxPalindrome
+			}(s)
+		}
 	}
 
 	go func(str chan string, wg *sync.WaitGroup) {
@@ -48,5 +47,4 @@ func main() {
 	strChan := make(chan string)
 	palindromes := <-longestPalindrome("asdfasdf1234321asd32", strChan)
 	fmt.Println(palindromes)
-	defer close(strChan)
 }
