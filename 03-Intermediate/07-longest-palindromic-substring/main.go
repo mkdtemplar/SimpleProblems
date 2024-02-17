@@ -18,20 +18,22 @@ func isPalindrome(s string) bool {
 // Function to find all palindromes
 func longestPalindrome(s string, strChan chan string) chan string {
 	var maxPalindrome string
-	for i := 0; i < len(s); i++ {
-		i := i
-		go func() {
-			for j := i; j < len(s); j++ {
-				if isPalindrome(s[i:j+1]) && len(s[i:j+1]) > 1 {
-					if len(maxPalindrome) < len(s[i:j+1]) {
-						maxPalindrome = s[i : j+1]
+
+	go func() {
+		for i := 0; i < len(s); i++ {
+			k := i
+			for j := k; j < len(s); j++ {
+				if isPalindrome(s[k:j+1]) && len(s[k:j+1]) > 1 {
+					if len(maxPalindrome) < len(s[k:j+1]) {
+						maxPalindrome = s[k : j+1]
 					}
 				}
 
 			}
-			strChan <- maxPalindrome
-		}()
-	}
+		}
+		strChan <- maxPalindrome
+	}()
+
 	return strChan
 }
 
