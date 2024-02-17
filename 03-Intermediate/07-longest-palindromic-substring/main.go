@@ -39,6 +39,7 @@ func longestPalindrome(s string, strChan chan string) string {
 	go func(str chan string, wg *sync.WaitGroup) {
 		wg.Wait()
 		<-strChan
+		defer close(strChan)
 	}(strChan, &wg)
 	result := <-strChan
 	return result
@@ -49,4 +50,5 @@ func main() {
 	palindromes := longestPalindrome("asdfasdf1234321asd32", strChan)
 
 	fmt.Println(palindromes)
+
 }
