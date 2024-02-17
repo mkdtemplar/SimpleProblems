@@ -17,7 +17,7 @@ func isPalindrome(s string) bool {
 }
 
 // Function to find all palindromes
-func longestPalindrome(s string, strChan chan string) chan string {
+func longestPalindrome(s string, strChan chan string) string {
 	var maxPalindrome string
 	var wg sync.WaitGroup
 	for i := 0; i < len(s); i++ {
@@ -40,11 +40,13 @@ func longestPalindrome(s string, strChan chan string) chan string {
 		wg.Wait()
 		<-strChan
 	}(strChan, &wg)
-	return strChan
+	result := <-strChan
+	return result
 }
 
 func main() {
 	strChan := make(chan string)
-	palindromes := <-longestPalindrome("asdfasdf1234321asd32", strChan)
+	palindromes := longestPalindrome("asdfasdf1234321asd32", strChan)
+
 	fmt.Println(palindromes)
 }
