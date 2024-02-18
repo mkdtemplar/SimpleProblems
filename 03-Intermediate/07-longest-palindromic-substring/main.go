@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 )
 
@@ -35,7 +36,7 @@ func longestPalindrome(s string, strChan chan string) string {
 			}(s)
 		}
 	}
-
+	fmt.Println("Total number of go routines created: ", runtime.NumGoroutine())
 	go func(str chan string, wg *sync.WaitGroup) {
 		wg.Wait()
 		<-strChan
