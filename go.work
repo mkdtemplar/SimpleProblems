@@ -1,4 +1,4 @@
-go 1.22.0
+go 1.22.4
 
 use (
 	./01-Elementary/01-HelloWorld
@@ -33,17 +33,18 @@ use (
 	./02-ListStrings/19-rectangular-frame
 	./02-ListStrings/20-pig-latin
 	./03-Intermediate/01-outputs-all-possibilities
-	./03-Intermediate/03-data-structure-for-graphs
 	./03-Intermediate/02-leap-year-rule
 	./03-Intermediate/02-leap-year-rule/02-1-leap-year-GraphQL
-	./03-Intermediate/06-english-to-morse
-	./03-Intermediate/07-longest-palindromic-substring
+	./03-Intermediate/03-data-structure-for-graphs
 	./03-Intermediate/04-DOT-representation-graph
 	./03-Intermediate/05-automatically-generates-essays
+	./03-Intermediate/06-english-to-morse
+	./03-Intermediate/07-longest-palindromic-substring
 	./03-Intermediate/08-interface-for-list
 	./03-Intermediate/09-fixed-chunk-of-memory
 	./03-Intermediate/12-Implement-binary-heap/max-heap
 	./03-Intermediate/12-Implement-binary-heap/min-heap
 	./03-Intermediate/13-unbalanced-binary-search-tree
-	03-Intermediate/14-B-Tree
+	./03-Intermediate/14-B-Tree
+	./04-Advanced/01-longest-common-subsequence
 )
